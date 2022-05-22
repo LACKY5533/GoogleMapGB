@@ -7,5 +7,6 @@ target 'GoogleMapGB' do
 
   # Pods for GoogleMapGB
   pod 'GoogleMaps'
+  pod 'RealmSwift'
 
 end
