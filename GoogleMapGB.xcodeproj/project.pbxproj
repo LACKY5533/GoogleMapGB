@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		323F3819315F7BFC0614797D /* Pods_GoogleMapGB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818F6B93EF2B84E2DB72A24D /* Pods_GoogleMapGB.framework */; };
+		8730DB99283A7CE600BBF2BF /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8730DB98283A7CE600BBF2BF /* Array.swift */; };
+		8730DB9B283A7D1000BBF2BF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8730DB9A283A7D1000BBF2BF /* Location.swift */; };
+		8730DB9D283A7D1800BBF2BF /* LocationRealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8730DB9C283A7D1800BBF2BF /* LocationRealmDB.swift */; };
 		87DE783D28328A6F00D6C9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE783C28328A6F00D6C9EA /* AppDelegate.swift */; };
 		87DE783F28328A6F00D6C9EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE783E28328A6F00D6C9EA /* SceneDelegate.swift */; };
 		87DE784128328A6F00D6C9EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE784028328A6F00D6C9EA /* ViewController.swift */; };
@@ -19,6 +22,9 @@
 /* Begin PBXFileReference section */
 		170720D96D289FDC520255AE /* Pods-GoogleMapGB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapGB.release.xcconfig"; path = "Target Support Files/Pods-GoogleMapGB/Pods-GoogleMapGB.release.xcconfig"; sourceTree = "<group>"; };
 		818F6B93EF2B84E2DB72A24D /* Pods_GoogleMapGB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapGB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8730DB98283A7CE600BBF2BF /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		8730DB9A283A7D1000BBF2BF /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = ../../../../123/App/Entity/Location.swift; sourceTree = "<group>"; };
+		8730DB9C283A7D1800BBF2BF /* LocationRealmDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationRealmDB.swift; path = ../../../../123/App/DatabaseRealm/LocationRealmDB.swift; sourceTree = "<group>"; };
 		87DE783928328A6E00D6C9EA /* GoogleMapGB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleMapGB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DE783C28328A6F00D6C9EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DE783E28328A6F00D6C9EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +48,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8730DB91283A7B7B00BBF2BF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				87DE783C28328A6F00D6C9EA /* AppDelegate.swift */,
+				87DE783E28328A6F00D6C9EA /* SceneDelegate.swift */,
+				8730DB93283A7BB600BBF2BF /* General */,
+				8730DB96283A7BD100BBF2BF /* DatabaseRealm */,
+				8730DB94283A7BC000BBF2BF /* Entity */,
+				8730DB95283A7BC800BBF2BF /* Flows */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8730DB92283A7B8300BBF2BF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				87DE784728328A7100D6C9EA /* LaunchScreen.storyboard */,
+				87DE784528328A7100D6C9EA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8730DB93283A7BB600BBF2BF /* General */ = {
+			isa = PBXGroup;
+			children = (
+				8730DB97283A7CE600BBF2BF /* extensions */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		8730DB94283A7BC000BBF2BF /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				8730DB9A283A7D1000BBF2BF /* Location.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		8730DB95283A7BC800BBF2BF /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				87DE784228328A6F00D6C9EA /* Main.storyboard */,
+				87DE784028328A6F00D6C9EA /* ViewController.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		8730DB96283A7BD100BBF2BF /* DatabaseRealm */ = {
+			isa = PBXGroup;
+			children = (
+				8730DB9C283A7D1800BBF2BF /* LocationRealmDB.swift */,
+			);
+			path = DatabaseRealm;
+			sourceTree = "<group>";
+		};
+		8730DB97283A7CE600BBF2BF /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8730DB98283A7CE600BBF2BF /* Array.swift */,
+			);
+			name = extensions;
+			path = ../../../../123/App/General/extensions;
+			sourceTree = "<group>";
+		};
 		87DE783028328A6E00D6C9EA = {
 			isa = PBXGroup;
 			children = (
@@ -63,12 +133,8 @@
 		87DE783B28328A6F00D6C9EA /* GoogleMapGB */ = {
 			isa = PBXGroup;
 			children = (
-				87DE783C28328A6F00D6C9EA /* AppDelegate.swift */,
-				87DE783E28328A6F00D6C9EA /* SceneDelegate.swift */,
-				87DE784028328A6F00D6C9EA /* ViewController.swift */,
-				87DE784228328A6F00D6C9EA /* Main.storyboard */,
-				87DE784528328A7100D6C9EA /* Assets.xcassets */,
-				87DE784728328A7100D6C9EA /* LaunchScreen.storyboard */,
+				8730DB91283A7B7B00BBF2BF /* App */,
+				8730DB92283A7B8300BBF2BF /* Resources */,
 				87DE784A28328A7100D6C9EA /* Info.plist */,
 			);
 			path = GoogleMapGB;
@@ -80,7 +146,6 @@
 				CAEA187AE7F7F410A0650DAD /* Pods-GoogleMapGB.debug.xcconfig */,
 				170720D96D289FDC520255AE /* Pods-GoogleMapGB.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -104,6 +169,7 @@
 				87DE783628328A6E00D6C9EA /* Frameworks */,
 				87DE783728328A6E00D6C9EA /* Resources */,
 				256EFD61704FA6AF168111DF /* [CP] Copy Pods Resources */,
+				17CF2F44E5331D3648583F8F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +227,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		17CF2F44E5331D3648583F8F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoogleMapGB/Pods-GoogleMapGB-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoogleMapGB/Pods-GoogleMapGB-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoogleMapGB/Pods-GoogleMapGB-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		256EFD61704FA6AF168111DF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,6 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				87DE784128328A6F00D6C9EA /* ViewController.swift in Sources */,
+				8730DB99283A7CE600BBF2BF /* Array.swift in Sources */,
+				8730DB9D283A7D1800BBF2BF /* LocationRealmDB.swift in Sources */,
+				8730DB9B283A7D1000BBF2BF /* Location.swift in Sources */,
 				87DE783D28328A6F00D6C9EA /* AppDelegate.swift in Sources */,
 				87DE783F28328A6F00D6C9EA /* SceneDelegate.swift in Sources */,
 			);
