@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapViewController.swift
 //  GoogleMapGB
 //
 //  Created by LACKY on 16.05.2022.
@@ -10,7 +10,7 @@ import GoogleMaps
 import Realm
 import RealmSwift
 
-class ViewController: UIViewController {
+class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     private var markers = [GMSMarker]()
     private var isTracking: Bool = false
     
-    private let database = LocationRealmDB()
+    private let database = AllRealmDB()
     private let locationObject = LocationObject()
     private var locationsArr = [Location]()
     private var locationsDB: Results<Location>?
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     @IBAction func stopTrackButton(_ sender: Any) {
         markers.forEach { $0.map = nil }
         database.deleteAll()
-        database.saveToRealm(cllocationCoordinates)
+        database.saveCLLToRealm(cllocationCoordinates)
         route?.map = nil
         cllocationCoordinates.removeAll()
         locationManager?.stopUpdatingLocation()
@@ -108,7 +108,7 @@ class ViewController: UIViewController {
         let alertVC = UIAlertController(title: "Error", message: "!!!", preferredStyle: .alert)
         let alertItem = UIAlertAction(title: "Okey", style: .cancel) { [weak self] _ in
             self?.database.deleteAll()
-            self?.database.saveToRealm(self!.cllocationCoordinates)
+            self?.database.saveCLLToRealm(self!.cllocationCoordinates)
             self?.route?.map = nil
             self?.cllocationCoordinates.removeAll()
             self?.locationManager?.stopUpdatingLocation()
@@ -127,10 +127,10 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: GMSMapViewDelegate {
+extension MapViewController: GMSMapViewDelegate {
     }
 
-extension ViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }

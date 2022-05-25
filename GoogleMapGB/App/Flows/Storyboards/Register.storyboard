@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Register View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="RegisterViewController" customModule="GoogleMapGB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vmi-uf-mRh">
+                                <rect key="frame" x="132" y="194" width="150" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="UqF-tS-zT2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GSk-8r-iGf">
+                                <rect key="frame" x="132" y="238" width="150" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Xqv-Hk-c3C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4Y-dO-jc5">
+                                <rect key="frame" x="125" y="287" width="164" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Зарегистрироваться"/>
+                                <connections>
+                                    <action selector="registerButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BNf-N7-q3R"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GSk-8r-iGf" firstAttribute="top" secondItem="Vmi-uf-mRh" secondAttribute="bottom" constant="10" id="ASH-Ph-oOL"/>
+                            <constraint firstItem="u4Y-dO-jc5" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Q2E-3j-lsK"/>
+                            <constraint firstItem="GSk-8r-iGf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jWR-ko-A3I"/>
+                            <constraint firstItem="Vmi-uf-mRh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jl3-ng-sWK"/>
+                            <constraint firstItem="Vmi-uf-mRh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="150" id="rBI-Xm-RRR"/>
+                            <constraint firstItem="u4Y-dO-jc5" firstAttribute="top" secondItem="GSk-8r-iGf" secondAttribute="bottom" constant="15" id="shO-Xe-Mqt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginTextField" destination="Vmi-uf-mRh" id="3le-Ys-VY7"/>
+                        <outlet property="passwordTextField" destination="GSk-8r-iGf" id="A5m-Ub-Quc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="91"/>
+        </scene>
+    </scenes>
+</document>
