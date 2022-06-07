@@ -9,6 +9,7 @@ import UIKit
 import GoogleMaps
 import Realm
 import RealmSwift
+import RxSwift
 
 class MapViewController: UIViewController {
 
@@ -16,12 +17,13 @@ class MapViewController: UIViewController {
     
     private var coordinate = CLLocationCoordinate2D(latitude: 55.7522200, longitude: 37.6155600)
     private var marker: GMSMarker?
-    private var locationManager: CLLocationManager?
     private var route: GMSPolyline?
     private var routePath: GMSMutablePath?
     private var cllocationCoordinates = [CLLocation]()
     private var markers = [GMSMarker]()
     private var isTracking: Bool = false
+    private let disposeBag = DisposeBag()
+    private let locationManager = LocationManager.instance
     
     private let database = AllRealmDB()
     private let locationObject = LocationObject()
@@ -41,13 +43,13 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func actualLocationButton(_ sender: Any) {
-        locationManager?.requestLocation()
+        locationManager.requestLocation()
     }
     
     @IBAction func beginTrackButton(_ sender: Any) {
         cllocationCoordinates.removeAll()
         route?.map = mapView
-        locationManager?.startUpdatingLocation()
+        locationManager.startUpdatingLocation()
         isTracking = true
     }
     
@@ -57,7 +59,7 @@ class MapViewController: UIViewController {
         database.saveCLLToRealm(cllocationCoordinates)
         route?.map = nil
         cllocationCoordinates.removeAll()
-        locationManager?.stopUpdatingLocation()
+        locationManager.stopUpdatingLocation()
         isTracking = false
     }
     
@@ -98,10 +100,20 @@ class MapViewController: UIViewController {
     }
     
     private func configureLocationManager() {
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.requestAlwaysAuthorization()
-        locationManager?.requestWhenInUseAuthorization()
+        locationManager
+            .location
+            .asObservable()
+            .subscribe { [weak self] location in
+                print("Inside closure \(location)")
+                guard let location = location.element?.last else { return }
+                self?.routePath?.add(location.coordinate)
+                self?.route?.path  = self?.routePath
+                let position = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 15)
+                self?.coordinate = location.coordinate
+                self?.mapView.animate(to: position)
+                self?.cllocationCoordinates.append(location)
+                
+            }.disposed(by: disposeBag)
     }
     
     private func showAlert() {
@@ -111,7 +123,7 @@ class MapViewController: UIViewController {
             self?.database.saveCLLToRealm(self!.cllocationCoordinates)
             self?.route?.map = nil
             self?.cllocationCoordinates.removeAll()
-            self?.locationManager?.stopUpdatingLocation()
+            self?.locationManager.stopUpdatingLocation()
             self?.isTracking = false
         }
         alertVC.addAction(alertItem)
