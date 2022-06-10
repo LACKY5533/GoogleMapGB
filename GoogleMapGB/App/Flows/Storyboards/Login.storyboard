@@ -62,6 +62,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="B2u-tb-au2" id="ncZ-tc-tx6"/>
                         <outlet property="loginTextField" destination="gKh-mj-zOq" id="MkI-FZ-2lJ"/>
                         <outlet property="passwordTextField" destination="73P-4r-CME" id="Zf2-Qm-kwT"/>
                     </connections>

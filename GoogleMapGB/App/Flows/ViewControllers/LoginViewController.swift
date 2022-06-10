@@ -9,18 +9,23 @@ import Foundation
 import UIKit
 import Realm
 import RealmSwift
+import RxCocoa
+import RxSwift
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     private let database = AllRealmDB()
     private var users: Results<User>?
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         users = database.loadUsers()
+        configureLoginButton()
     }
     
     @IBAction func loginButton(_ sender: Any) {
@@ -59,5 +64,17 @@ class LoginViewController: UIViewController {
         let alertItem = UIAlertAction(title: "Ок", style: .cancel)
         alertVC.addAction(alertItem)
         present(alertVC, animated: true)
+    }
+    
+    private func configureLoginButton() {
+        Observable
+            .combineLatest(loginTextField.rx.text, passwordTextField.rx.text)
+            .map { login, password in
+                print("reading textfields")
+                return !(login ?? "").isEmpty && !(password ?? "").isEmpty
+            }
+            .subscribe { [weak loginButton] inputFilled in
+                loginButton?.isEnabled = inputFilled
+            }.disposed(by: disposeBag)
     }
 }
