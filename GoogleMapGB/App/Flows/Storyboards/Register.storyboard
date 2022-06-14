@@ -39,19 +39,37 @@
                                     <action selector="registerButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BNf-N7-q3R"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ke4-To-GJQ">
+                                <rect key="frame" x="145" y="144" width="126" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Добавить фото"/>
+                                <connections>
+                                    <action selector="takePicture:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RGh-k2-8Pd"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XwJ-me-ZAB">
+                                <rect key="frame" x="99" y="355" width="216" height="128"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="XwJ-me-ZAB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="2JA-fc-lJr"/>
                             <constraint firstItem="GSk-8r-iGf" firstAttribute="top" secondItem="Vmi-uf-mRh" secondAttribute="bottom" constant="10" id="ASH-Ph-oOL"/>
+                            <constraint firstItem="XwJ-me-ZAB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="99" id="IjS-EI-onz"/>
                             <constraint firstItem="u4Y-dO-jc5" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Q2E-3j-lsK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XwJ-me-ZAB" secondAttribute="bottom" constant="379" id="SDK-sy-Yvc"/>
+                            <constraint firstItem="ke4-To-GJQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="aTl-V8-AM4"/>
                             <constraint firstItem="GSk-8r-iGf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jWR-ko-A3I"/>
                             <constraint firstItem="Vmi-uf-mRh" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jl3-ng-sWK"/>
                             <constraint firstItem="Vmi-uf-mRh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="150" id="rBI-Xm-RRR"/>
                             <constraint firstItem="u4Y-dO-jc5" firstAttribute="top" secondItem="GSk-8r-iGf" secondAttribute="bottom" constant="15" id="shO-Xe-Mqt"/>
+                            <constraint firstItem="ke4-To-GJQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="145" id="uK4-CO-jiB"/>
+                            <constraint firstItem="XwJ-me-ZAB" firstAttribute="top" secondItem="u4Y-dO-jc5" secondAttribute="bottom" constant="37" id="ujj-6U-4Vs"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="avatarImage" destination="XwJ-me-ZAB" id="5NC-UV-k5j"/>
                         <outlet property="loginTextField" destination="Vmi-uf-mRh" id="3le-Ys-VY7"/>
                         <outlet property="passwordTextField" destination="GSk-8r-iGf" id="A5m-Ub-Quc"/>
                     </connections>
