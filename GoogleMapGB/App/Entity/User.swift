@@ -16,7 +16,7 @@ final class User: Object, Codable {
     @objc dynamic var login: String = ""
     @objc dynamic var password: String = ""
     
-    convenience init(login: String, password: String) {
+    convenience init(login: String, password: String, imageData: String) {
         self.init()
         self.login = login
         self.password = password

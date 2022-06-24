@@ -10,18 +10,21 @@ import UIKit
 import Realm
 import RealmSwift
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, ImagePickerDelegate {
     
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var avatarImage: UIImageView!
     
     private let database = AllRealmDB()
     private let realm = try! Realm()
     private var users: Results<User>?
     private var usertoDB = [User]()
+    private var imagePicker: ImagePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         users = database.loadUsers()
     }
     
@@ -37,7 +40,8 @@ class RegisterViewController: UIViewController {
                 users[index].password = passwordTextField.text!
             })
         } else {
-            usertoDB.append(User(login: loginTextField.text!, password: passwordTextField.text!.sha1()))
+            let image = self.avatarImage.image
+            usertoDB.append(User(login: loginTextField.text!, password: passwordTextField.text!.sha1(), imageData: (image?.toPngString()) ?? "camera"))
             database.saveUsers(usertoDB)
         }
         
@@ -46,10 +50,21 @@ class RegisterViewController: UIViewController {
         self.present(vc, animated: true)
     }
     
+    @IBAction func takePicture(_ sender: Any) {
+        self.imagePicker.present(from: sender as! UIView)
+    }
+    
     private func alert() {
         let alertVC = UIAlertController(title: "Ошибка", message: "Пустые поля, либо пароль неверный!", preferredStyle: .alert)
         let alertItem = UIAlertAction(title: "Ок", style: .cancel)
         alertVC.addAction(alertItem)
         present(alertVC, animated: true)
+    }
+}
+
+extension RegisterViewController: UIImagePickerControllerDelegate {
+    
+    func didSelect(image: UIImage?) {
+        self.avatarImage.image = image
     }
 }

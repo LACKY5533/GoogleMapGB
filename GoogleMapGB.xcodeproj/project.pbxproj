@@ -10,6 +10,8 @@
 		323F3819315F7BFC0614797D /* Pods_GoogleMapGB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818F6B93EF2B84E2DB72A24D /* Pods_GoogleMapGB.framework */; };
 		871BC4F4284F851300784B19 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871BC4F3284F851300784B19 /* LocationManager.swift */; };
 		8724C2502844C68200D48FE5 /* StringCrypographic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8724C24F2844C68200D48FE5 /* StringCrypographic.swift */; };
+		8725F2AB2858957E001412C0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8725F2AA2858957E001412C0 /* ImagePicker.swift */; };
+		8725F2AD285895E7001412C0 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8725F2AC285895E7001412C0 /* UIImage.swift */; };
 		8730DB99283A7CE600BBF2BF /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8730DB98283A7CE600BBF2BF /* Array.swift */; };
 		8730DB9B283A7D1000BBF2BF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8730DB9A283A7D1000BBF2BF /* Location.swift */; };
 		8730DB9D283A7D1800BBF2BF /* AllRealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8730DB9C283A7D1800BBF2BF /* AllRealmDB.swift */; };
@@ -32,6 +34,8 @@
 		818F6B93EF2B84E2DB72A24D /* Pods_GoogleMapGB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapGB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		871BC4F3284F851300784B19 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8724C24F2844C68200D48FE5 /* StringCrypographic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCrypographic.swift; sourceTree = "<group>"; };
+		8725F2AA2858957E001412C0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8725F2AC285895E7001412C0 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8730DB98283A7CE600BBF2BF /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		8730DB9A283A7D1000BBF2BF /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = ../../../../123/App/Entity/Location.swift; sourceTree = "<group>"; };
 		8730DB9C283A7D1800BBF2BF /* AllRealmDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AllRealmDB.swift; path = ../../../../123/App/DatabaseRealm/AllRealmDB.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 			children = (
 				8730DB98283A7CE600BBF2BF /* Array.swift */,
 				8724C24F2844C68200D48FE5 /* StringCrypographic.swift */,
+				8725F2AA2858957E001412C0 /* ImagePicker.swift */,
+				8725F2AC285895E7001412C0 /* UIImage.swift */,
 			);
 			name = extensions;
 			path = ../../../../123/App/General/extensions;
@@ -332,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8725F2AB2858957E001412C0 /* ImagePicker.swift in Sources */,
 				87DE784128328A6F00D6C9EA /* MapViewController.swift in Sources */,
 				87441DE7283E7EC900E8B55F /* RegisterViewController.swift in Sources */,
 				8730DB99283A7CE600BBF2BF /* Array.swift in Sources */,
@@ -344,6 +351,7 @@
 				87DE783D28328A6F00D6C9EA /* AppDelegate.swift in Sources */,
 				87DE783F28328A6F00D6C9EA /* SceneDelegate.swift in Sources */,
 				87441DDB283E78BA00E8B55F /* User.swift in Sources */,
+				8725F2AD285895E7001412C0 /* UIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
